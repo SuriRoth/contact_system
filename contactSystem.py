@@ -1,1 +1,2 @@
-contactList[]
+contactList = []
+    
