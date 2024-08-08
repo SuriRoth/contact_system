@@ -1,13 +1,6 @@
 import json
 
 contacts = []
-
-def loadContactFromFile():
-    with open('contacts.txt', 'r') as file:  
-        contacts.clear()   
-        contacts.extend(json.load(file))  
-        for contact in contacts:
-            print (contact, '\n')
             
 def saveToFile(contacts):
     with open('contacts.txt', 'w') as file:
@@ -28,7 +21,7 @@ def updateContact(contacts):
             return
     print('Contact not found. ')
             
-def removeContact():
+def removeContact(contacts):
     contactToDelete = input('Which contact would you like to delete?')
     for contact in contacts:
         if contact['name'] == contactToDelete:
@@ -45,6 +38,13 @@ def viewContact(contacts):
             print(contact)
             return 
     print('Contact not found')
+    
+def loadContactFromFile(contacts):
+    with open('contacts.txt', 'r') as file:  
+        contacts.clear()   
+        contacts.extend(json.load(file))  
+        for contact in contacts:
+            print (contact, '\n')
         
 def newChoice():
     while True:
