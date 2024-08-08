@@ -33,11 +33,14 @@ def removeContact(contacts):
         
 def viewContact(contacts):
     contactToView = input('Which contact would you like to see?')
+    contactFound = False
     for contact in contacts:
         if contact['name'] == contactToView:
             print(contact)
-            return 
-    print('Contact not found')
+            contactFound = True
+            break 
+    if not contactFound:
+        print('Contact not found')
     
 def loadContactFromFile(contacts):
     with open('contacts.txt', 'r') as file:  
